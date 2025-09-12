@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Circular Grid Detector: High-Performance Circle Pattern Detection"
+version: 1.0.0
+date-released: 2025-01-13
+url: "https://github.com/crazysa/circular-grid-detector"
+repository-code: "https://github.com/crazysa/circular-grid-detector"
+authors:
+  - family-names: "Agarwal"
+    given-names: "Shubham"
+    email: "sragarwal@outlook.in"
+keywords:
+  - "computer vision"
+  - "circle detection"
+  - "grid pattern"
+  - "calibration"
+  - "opencv"
+  - "python"
+  - "image processing"
+  - "pattern recognition"
+license: "Custom License"
+abstract: >-
+  A high-performance Python library for detecting circular grid patterns 
+  in images. Implements advanced computer vision algorithms optimized for 
+  real-time circle grid detection with sub-pixel accuracy. Features fast 
+  detection (~0.5s per image), robust performance across various conditions,
+  and intelligent grid organization with flexible API design.
