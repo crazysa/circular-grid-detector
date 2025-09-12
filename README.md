@@ -20,15 +20,12 @@ A high-performance Python library for detecting circular grid patterns in images
 
 ### Installation
 
-```bash
-pip install circular-grid-detector
-```
-
-Or install from source:
+Install from source:
 
 ```bash
 git clone https://github.com/crazysa/circular-grid-detector.git
 cd circular-grid-detector
+pip install -r requirements.txt
 pip install -e .
 ```
 
