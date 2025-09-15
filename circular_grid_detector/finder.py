@@ -275,6 +275,7 @@ class GridFinder:
         
         point_index = PointIndex(rectified_pattern_points)
         centers = []
+        used_indices = set()
         
         for i in range(self.pattern_size.height):
             for j in range(self.pattern_size.width):
@@ -283,12 +284,23 @@ class GridFinder:
                 else:
                     ideal_pt = Point2f(j * self.square_size, i * self.square_size)
                 
-                indices, dists = point_index.nearest_search(ideal_pt, 1)
-                if len(indices) > 0:
-                    centers.append(pattern_points[indices[0]])
-                    
-                    if dists[0] > self.max_rectified_distance:
-                        return []
+                k = min(5, len(rectified_pattern_points))
+                indices, dists = point_index.nearest_search(ideal_pt, k)
+                
+                found_valid = False
+                for idx_pos in range(len(indices)):
+                    candidate_idx = indices[idx_pos]
+                    if candidate_idx not in used_indices:
+                        if dists[idx_pos] <= self.max_rectified_distance:
+                            centers.append(pattern_points[candidate_idx])
+                            used_indices.add(candidate_idx)
+                            found_valid = True
+                            break
+                        else:
+                            return []
+                
+                if not found_valid:
+                    return []
         
         return centers
     
